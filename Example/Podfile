@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SynqUploader_Example' do
+  pod 'SynqUploader', :path => '../'
+
+  target 'SynqUploader_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
