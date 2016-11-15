@@ -16,7 +16,6 @@
     PHCachingImageManager *cachingImageManager;
     CGSize cellSize;
 }
-
 @property (nonatomic, strong) NSMutableArray *videos;
 
 @end
@@ -33,8 +32,7 @@
     // Setup SynqLib: set this class as delegate
     [[SynqUploader sharedInstance] setDelegate:self];
     
-    
-    
+    // Init caching manager for video thumbnails
     cachingImageManager = [[PHCachingImageManager alloc] init];
 }
 
@@ -144,6 +142,17 @@
 - (void) videoUploadFailedForVideo:(SQVideoUpload *)video
 {
     // Handle error
+}
+
+
+
+#pragma mark - UICollectionView delegate
+
+
+- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    NSLog(@"Selected item at index %lu", indexPath.row);
+    
 }
 
 
