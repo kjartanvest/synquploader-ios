@@ -8,6 +8,8 @@
 
 @import UIKit;
 
-@interface SQViewController : UIViewController
+@interface SQViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end

@@ -7,15 +7,23 @@
 //
 
 #import "SQViewController.h"
+#import "SQVideoHandler.h"
+#import "SQCollectionViewCell.h"
 #import <SynqUploader/SynqUploader.h>
 
 
-@interface SQViewController () <SQVideoUploadDelegate>
+@interface SQViewController () <SQVideoUploadDelegate> {
+    PHCachingImageManager *cachingImageManager;
+    CGSize cellSize;
+}
+
+@property (nonatomic, strong) NSMutableArray *videos;
 
 @end
 
 
 @implementation SQViewController
+
 
 - (void)viewDidLoad
 {
@@ -24,7 +32,45 @@
     
     // Setup SynqLib: set this class as delegate
     [[SynqUploader sharedInstance] setDelegate:self];
+    
+    
+    
+    cachingImageManager = [[PHCachingImageManager alloc] init];
 }
+
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    // Set collectionView cell size depending on screen size
+    int screenWidth = self.view.frame.size.width;
+    double cellWidth = (screenWidth - 6) / 3.0;  // 3 cells per row, 3 points margin between each cell
+    UICollectionViewFlowLayout *layout = (id) self.collectionView.collectionViewLayout;
+    cellSize = CGSizeMake(cellWidth, cellWidth);
+    layout.itemSize = cellSize;
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    // Check Photos authorization
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        if (status == PHAuthorizationStatusAuthorized) {
+            
+            // Get device videos
+            self.videos = [[SQVideoHandler sharedInstance] deviceVideos];
+            NSLog(@"Number of videos: %lu", self.videos.count);
+            
+            // Reload collection view data, on main thread!
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.collectionView reloadData];
+            });
+        }
+    }];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -99,6 +145,45 @@
 {
     // Handle error
 }
+
+
+#pragma mark - UICollectionView datasource
+
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [self.videos count];
+}
+
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *cellIdentifier = @"SQCell";
+    
+    SQCollectionViewCell *cell = (SQCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    SQVideoUpload *video = [self.videos objectAtIndex:indexPath.row];
+    
+    if (cell.tag) {
+        [cachingImageManager cancelImageRequest:(PHImageRequestID)cell.tag];
+    }
+    
+    PHAsset *asset = [video phAsset];
+    
+    cell.tag = [cachingImageManager requestImageForAsset:asset
+                                              targetSize:cellSize
+                                             contentMode:PHImageContentModeAspectFill
+                                                 options:nil
+                                           resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+                                               cell.videoImageView.image = result;
+                                           }];
+    
+    return cell;
+}
+
 
 
 @end

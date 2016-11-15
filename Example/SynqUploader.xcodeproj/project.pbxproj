@@ -23,6 +23,8 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		D1DBC31F1DDB343800821D66 /* SQVideoHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DBC31E1DDB343800821D66 /* SQVideoHandler.m */; };
+		D1DBC3221DDB8EF400821D66 /* SQCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DBC3211DDB8EF400821D66 /* SQCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,10 @@
 		BF5CFA2DB00F7979EF6F8B06 /* Pods_SynqUploader_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SynqUploader_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE67EDEAF2B2D7E22C815101 /* Pods-SynqUploader_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynqUploader_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SynqUploader_Tests/Pods-SynqUploader_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D19836F31DDB20520060A982 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		D1DBC31D1DDB343800821D66 /* SQVideoHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQVideoHandler.h; sourceTree = "<group>"; };
+		D1DBC31E1DDB343800821D66 /* SQVideoHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQVideoHandler.m; sourceTree = "<group>"; };
+		D1DBC3201DDB8EF400821D66 /* SQCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQCollectionViewCell.h; sourceTree = "<group>"; };
+		D1DBC3211DDB8EF400821D66 /* SQCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQCollectionViewCell.m; sourceTree = "<group>"; };
 		FEBE3D1FF24593948173EA80 /* Pods_SynqUploader_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SynqUploader_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -131,11 +137,14 @@
 		6003F593195388D20070C39A /* Example for SynqUploader */ = {
 			isa = PBXGroup;
 			children = (
+				D1DBC31C1DDB32A800821D66 /* Synq */,
 				6003F59C195388D20070C39A /* SQAppDelegate.h */,
 				6003F59D195388D20070C39A /* SQAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* SQViewController.h */,
 				6003F5A6195388D20070C39A /* SQViewController.m */,
+				D1DBC3201DDB8EF400821D66 /* SQCollectionViewCell.h */,
+				D1DBC3211DDB8EF400821D66 /* SQCollectionViewCell.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -182,6 +191,15 @@
 				D19836F31DDB20520060A982 /* CHANGELOG.md */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		D1DBC31C1DDB32A800821D66 /* Synq */ = {
+			isa = PBXGroup;
+			children = (
+				D1DBC31D1DDB343800821D66 /* SQVideoHandler.h */,
+				D1DBC31E1DDB343800821D66 /* SQVideoHandler.m */,
+			);
+			name = Synq;
 			sourceTree = "<group>";
 		};
 		D623FB83546657F74D3ACE56 /* Pods */ = {
@@ -249,6 +267,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Kjartan;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 89H78C8L8B;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -392,6 +413,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1DBC31F1DDB343800821D66 /* SQVideoHandler.m in Sources */,
+				D1DBC3221DDB8EF400821D66 /* SQCollectionViewCell.m in Sources */,
 				6003F59E195388D20070C39A /* SQAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* SQViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
@@ -515,6 +538,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 89H78C8L8B;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SynqUploader/SynqUploader-Prefix.pch";
 				INFOPLIST_FILE = "SynqUploader/SynqUploader-Info.plist";
@@ -531,6 +555,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 89H78C8L8B;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SynqUploader/SynqUploader-Prefix.pch";
 				INFOPLIST_FILE = "SynqUploader/SynqUploader-Info.plist";
