@@ -13,10 +13,16 @@
 
 @interface SynqAPI : NSObject
 
+
 + (SynqAPI *) sharedInstance;
 
-- (void) createVideo:(SQVideoUpload *)sqVideo;
+- (void) createVideo:(SQVideoUpload *)sqVideo
+        successBlock:(void (^)(NSDictionary *))successBlock
+    httpFailureBlock:(void (^)(NSURLSessionDataTask *, NSError *))httpFailureBlock;
 
 
+- (void) getUploadParameters:(SQVideoUpload *)sqVideo
+                successBlock:(void (^)(NSDictionary *))successBlock
+            httpFailureBlock:(void (^)(NSURLSessionDataTask *, NSError *))httpFailureBlock;
 
 @end

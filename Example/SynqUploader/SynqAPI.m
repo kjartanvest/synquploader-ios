@@ -50,46 +50,51 @@
 
 
 - (void) createVideo:(SQVideoUpload *)sqVideo
+        successBlock:(void (^)(NSDictionary *))successBlock
+    httpFailureBlock:(void (^)(NSURLSessionDataTask *, NSError *))httpFailureBlock
 {
     NSDictionary *paramsDict = @{
                                  @"api_key" : API_KEY
                                  };
     
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    
     [manager POST:@"video/create"
        parameters:paramsDict
          progress:nil
           success:^(NSURLSessionDataTask *task, id responseObject) {
               NSDictionary *jsonResponse = (NSDictionary *)responseObject;
               
-              NSLog(@"Success, response: %@", jsonResponse);
-              
+              successBlock(jsonResponse);
           }
           failure:^(NSURLSessionDataTask *task, NSError *error) {
               
-              NSLog(@"Error: %@", error);
-          }];
-    
-    /*
-    [manager POST:@"/agents__create_human"
-       parameters:paramsDict
-          success:^(NSURLSessionDataTask *task, id responseObject) {
-              
-              NSArray *arrayOfDictionaries = (NSArray *)responseObject;
-              
-              if (arrayOfDictionaries) {
-                  successBlock(arrayOfDictionaries);
-              }
-              else {
-                  NSString *errorString = @"Something went wrong parsing the JSON response";
-                  parseFailureBlock(errorString);
-              }
-          }
-          failure:^(NSURLSessionDataTask *task, NSError *error) {
               httpFailureBlock(task, error);
           }];
-     */
+}
+
+
+- (void) getUploadParameters:(SQVideoUpload *)sqVideo
+                successBlock:(void (^)(NSDictionary *))successBlock
+            httpFailureBlock:(void (^)(NSURLSessionDataTask *, NSError *))httpFailureBlock
+{
+    NSDictionary *paramsDict = @{
+                                 @"api_key"     : API_KEY,
+                                 @"video_id"    : sqVideo.videoId
+                                 };
+    
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [manager POST:@"video/upload"
+       parameters:paramsDict
+         progress:nil
+          success:^(NSURLSessionDataTask *task, id responseObject) {
+              NSDictionary *jsonResponse = (NSDictionary *)responseObject;
+              
+              successBlock(jsonResponse);
+          }
+          failure:^(NSURLSessionDataTask *task, NSError *error) {
+              
+              httpFailureBlock(task, error);
+          }];
 }
 
 @end
