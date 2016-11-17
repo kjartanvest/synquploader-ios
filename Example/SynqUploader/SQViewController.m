@@ -135,6 +135,7 @@
 - (void) allVideosUploadedSuccessfully
 {
     // Handle video upload complete
+    NSLog(@"All videos uploaded successfully");
 }
 
 - (void) videoUploadCompleteForVideo:(SQVideoUpload *)video
@@ -180,11 +181,38 @@
                                          // Set uploadParameters in SQVideoUpload object
                                          [sqVideo setUploadParameters:jsonResponse];
                                          
-                                         
+                                         // Initiate the upload
+                                         [self uploadVideo:sqVideo];
                                      }
                                  httpFailureBlock:^(NSURLSessionDataTask *task, NSError *error) {
                                      NSLog(@"MV: get upload params error: %@", error);
                                  }];
+}
+
+
+- (void) uploadVideo:(SQVideoUpload *)sqVideo
+{
+    // Create an array of videos to upload (in this case only one video)
+    NSArray *videosArray = [NSArray arrayWithObjects:sqVideo, nil];
+    
+    // Use SynqUploader to initiate exporting and uploading the videos in the array
+    [[SynqUploader sharedInstance] uploadVideoArray:videosArray
+                                uploadProgressBlock:^(double progress) {
+                                    
+                                    NSLog(@"Upload progress: %f", progress);
+                                    // Report progress to UI
+                                    
+                                } uploadSuccess:^(NSURLResponse *response) {
+                                    
+                                    NSLog(@"Upload success: %@", response);
+                                    // Handle upload success
+                                    
+                                } uploadError:^(NSError *error){
+                                    
+                                    NSLog(@"Upload error: %@", error);
+                                    // Handle upload error
+                                    
+                                }];
 }
 
 

@@ -128,14 +128,12 @@
                                                      completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
                                                          if (error) {
                                                              NSLog(@"Error: %@", error);
-                                                             
                                                              errorBlock(error);
                                                              /* (If error code -1001, notify request timeout)
                                                              [[NSNotificationCenter defaultCenter] postNotificationName:@"SynqVideoUploadFailed"
                                                                                                                  object:nil];
                                                               */
                                                          } else {
-                                                             NSLog(@"Upload Success!");
                                                              successBlock(response);
                                                          }
                                                          
