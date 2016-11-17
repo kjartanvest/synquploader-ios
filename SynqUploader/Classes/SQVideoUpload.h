@@ -19,6 +19,7 @@
 
 @property (nonatomic) PHAsset *phAsset;
 @property (nonatomic) NSString *filePath;
+@property (nonatomic) NSString *videoId;
 @property (nonatomic) NSDictionary *uploadParameters;
 @property (nonatomic) double uploadProgress;
 @property (nonatomic) BOOL exportComplete;
