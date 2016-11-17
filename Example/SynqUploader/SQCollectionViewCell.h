@@ -11,5 +11,6 @@
 @interface SQCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *videoImageView;
+@property (weak, nonatomic) IBOutlet UIView *videoOverlay;
 
 @end

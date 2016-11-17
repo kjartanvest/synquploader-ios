@@ -15,6 +15,8 @@
 @interface SQViewController () <SQVideoUploadDelegate> {
     PHCachingImageManager *cachingImageManager;
     CGSize cellSize;
+    NSIndexPath *selectedIndexPath;     // THe index path of a selected video
+    SQVideoUpload *selectedVideo;
 }
 @property (nonatomic, strong) NSMutableArray *videos;
 
@@ -151,7 +153,19 @@
 
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    NSLog(@"Selected item at index %lu", indexPath.row);
+    // If a selection has already been made, do nothing
+    if (selectedIndexPath) {
+        return;
+    }
+    
+    selectedVideo = [self.videos objectAtIndex:indexPath.row];
+    selectedIndexPath = indexPath;
+    
+    SQCollectionViewCell *cell = (SQCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    [cell.videoOverlay setHidden:NO];
+    
+    // Call upload functions...
+    
     
 }
 
@@ -179,6 +193,14 @@
     if (cell.tag) {
         [cachingImageManager cancelImageRequest:(PHImageRequestID)cell.tag];
     }
+    
+    if (indexPath != selectedIndexPath) {
+        [cell.videoOverlay setHidden:YES];
+    }
+    else {
+        [cell.videoOverlay setHidden:NO];
+    }
+    
     
     PHAsset *asset = [video phAsset];
     

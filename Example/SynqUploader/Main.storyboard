@@ -50,6 +50,11 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ox2-6e-cZS">
                                                     <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
                                                 </imageView>
+                                                <view hidden="YES" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N7w-G0-iA4">
+                                                    <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -60,6 +65,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="videoImageView" destination="ox2-6e-cZS" id="9gw-di-Yte"/>
+                                            <outlet property="videoOverlay" destination="N7w-G0-iA4" id="ac9-pg-Ewi"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
