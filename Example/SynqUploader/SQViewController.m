@@ -148,6 +148,45 @@
 }
 
 
+#pragma mark - Video methods calling SynqAPI
+
+
+- (void) createVideoObjectForVideo:(SQVideoUpload *)sqVideo
+{
+    [[SynqAPI sharedInstance] createVideo:sqVideo
+                             successBlock:^(NSDictionary *jsonResponse) {
+                                 NSString *videoID = [jsonResponse objectForKey:@"video_id"];
+                                 NSLog(@"SynqAPI: create video success, video_id %@", videoID);
+                                 
+                                 // Set video_id in SQVideoUpload object
+                                 [sqVideo setVideoId:videoID];
+                                 
+                                 // Get upload parameters
+                                 [self getUploadParametersForVideo:sqVideo];
+                             }
+                         httpFailureBlock:^(NSURLSessionDataTask *task, NSError *error) {
+                             NSLog(@"MV: video create error: %@", error);
+                         }];
+}
+
+
+- (void) getUploadParametersForVideo:(SQVideoUpload *)sqVideo
+{
+    [[SynqAPI sharedInstance] getUploadParameters:sqVideo
+                                     successBlock:^(NSDictionary *jsonResponse) {
+                                         
+                                         NSLog(@"SynqAPI: get upload params success, params: %@", jsonResponse);
+                                         
+                                         // Set uploadParameters in SQVideoUpload object
+                                         [sqVideo setUploadParameters:jsonResponse];
+                                         
+                                         
+                                     }
+                                 httpFailureBlock:^(NSURLSessionDataTask *task, NSError *error) {
+                                     NSLog(@"MV: get upload params error: %@", error);
+                                 }];
+}
+
 
 #pragma mark - UICollectionView delegate
 
@@ -165,8 +204,8 @@
     SQCollectionViewCell *cell = (SQCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     [cell.videoOverlay setHidden:NO];
     
-    // Call upload functions...
-    [[SynqAPI sharedInstance] createVideo:selectedVideo];
+    // Call video object functions (video/create and video/upload)
+    [self createVideoObjectForVideo:selectedVideo];
     
 }
 
