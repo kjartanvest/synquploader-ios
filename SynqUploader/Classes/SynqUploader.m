@@ -22,9 +22,6 @@
 @property PHAsset *assetToUpload;
 
 @property (nonatomic, copy) void (^uploadProgress)(double progress);
-@property (nonatomic, copy) void (^uploadSuccess)(NSURLResponse *response);
-@property (nonatomic, copy) void (^uploadError)(NSError *error);
-
 @property UIBackgroundTaskIdentifier bgTask;    // identifier for the background task, used while exporting
 @property NSTimer *uploadProgressTimer;         // timer for calculating upload progress during uploading
 
@@ -69,23 +66,17 @@
  *
  *  @param videos        An array of SQVideoUpload objects
  *  @param progressBlock This block will be called with upload progress updates. Use this to update the UI (the block is executed on the main thread)
- *  @param successBlock  A block called when all assets are successfully uploaded
- *  @param errorBlock    A block called on upload error, containing error data
  */
 - (void) uploadVideoArray:(NSArray *)videos
       uploadProgressBlock:(void (^)(double))progressBlock
-            uploadSuccess:(void (^)(NSURLResponse *))successBlock
-              uploadError:(void (^)(NSError *))errorBlock
 {
     if (!videos || videos.count == 0) {
         return;
     }
     
-    // Set videos array and blocks
+    // Set videos array and progress block
     self.videosToUpload = videos;
     self.uploadProgress = progressBlock;
-    self.uploadSuccess = successBlock;
-    self.uploadError = errorBlock;
     
     // Start exporting assets
     [self exportVideos];
@@ -175,7 +166,7 @@
                        
                        
                        if ([self.numVideosUploaded isEqualToNumber:self.numVideosToUpload]) {
-                           NSLog(@"All videos done uploading :)");
+                           NSLog(@"SynqUploader: All videos done uploading :)");
                            
                            // Invalidate timer
                            [self.uploadProgressTimer performSelectorOnMainThread:@selector(invalidate)
@@ -190,10 +181,12 @@
                        
                        // Delete temp file
                        [self.exporter deleteExportedFileForVideo:video];
-                       
                    }
                      uploadError:^(NSError *error) {
-                         NSLog(@"Upload error: %@", error);
+                         NSLog(@"SynqUploader: Upload error: %@", error);
+                         
+                         // TODO: delete temp file
+                         //
                          
                          // Notify delegate videoUploadFailed - NB: optional delegate method
                          if (self.delegate && [self.delegate respondsToSelector:@selector(videoUploadFailedForVideo:)]) {

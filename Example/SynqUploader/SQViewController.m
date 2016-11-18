@@ -114,16 +114,6 @@
                                NSLog(@"Upload progress: %f", progress);
                                // Report progress to UI
                                
-                           } uploadSuccess:^(NSURLResponse *response) {
-                               
-                               NSLog(@"Upload success: %@", response);
-                               // Handle upload success
-                               
-                           } uploadError:^(NSError *error){
-                               
-                               NSLog(@"Upload error: %@", error);
-                               // Handle upload error
-                               
                            }];
 }
 
@@ -201,16 +191,6 @@
                                     
                                     NSLog(@"Upload progress: %f", progress);
                                     // Report progress to UI
-                                    
-                                } uploadSuccess:^(NSURLResponse *response) {
-                                    
-                                    NSLog(@"Upload success: %@", response);
-                                    // Handle upload success
-                                    
-                                } uploadError:^(NSError *error){
-                                    
-                                    NSLog(@"Upload error: %@", error);
-                                    // Handle upload error
                                     
                                 }];
 }

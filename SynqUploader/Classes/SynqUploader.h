@@ -32,9 +32,7 @@
  *  @param errorBlock    A block called on upload error, containing error data
  */
 - (void) uploadVideoArray:(NSArray *)videos
-      uploadProgressBlock:(void (^)(double))progressBlock
-            uploadSuccess:(void (^)(NSURLResponse *))successBlock
-              uploadError:(void (^)(NSError *))errorBlock;
+      uploadProgressBlock:(void (^)(double))progressBlock;
 
 @end
 
