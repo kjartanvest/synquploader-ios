@@ -164,7 +164,6 @@
                            [self.delegate videoUploadCompleteForVideo:video];
                        }
                        
-                       
                        if ([self.numVideosUploaded isEqualToNumber:self.numVideosToUpload]) {
                            NSLog(@"SynqUploader: All videos done uploading :)");
                            
@@ -185,8 +184,8 @@
                      uploadError:^(NSError *error) {
                          NSLog(@"SynqUploader: Upload error: %@", error);
                          
-                         // TODO: delete temp file
-                         //
+                         // Delete temp file
+                         [self.exporter deleteExportedFileForVideo:video];
                          
                          // Notify delegate videoUploadFailed - NB: optional delegate method
                          if (self.delegate && [self.delegate respondsToSelector:@selector(videoUploadFailedForVideo:)]) {

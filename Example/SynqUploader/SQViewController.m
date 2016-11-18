@@ -131,11 +131,13 @@
 - (void) videoUploadCompleteForVideo:(SQVideoUpload *)video
 {
     // Handle upload complete for the video (for instance, update database of uploaded videos)
+    NSLog(@"Upload complete for video with id %@", video.videoId);
 }
 
 - (void) videoUploadFailedForVideo:(SQVideoUpload *)video
 {
     // Handle error
+    NSLog(@"Upload failed for video with id %@", video.videoId);
 }
 
 
@@ -166,7 +168,7 @@
     [[SynqAPI sharedInstance] getUploadParameters:sqVideo
                                      successBlock:^(NSDictionary *jsonResponse) {
                                          
-                                         NSLog(@"SynqAPI: get upload params success, params: %@", jsonResponse);
+                                         //NSLog(@"SynqAPI: get upload params success, params: %@", jsonResponse);
                                          
                                          // Set uploadParameters in SQVideoUpload object
                                          [sqVideo setUploadParameters:jsonResponse];
