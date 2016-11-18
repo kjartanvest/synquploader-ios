@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/SynqUploader.svg?style=flat)](http://cocoapods.org/pods/SynqUploader)
 [![Platform](https://img.shields.io/cocoapods/p/SynqUploader.svg?style=flat)](http://cocoapods.org/pods/SynqUploader)
 
-SynqLib is a simple Objective-C library that enables upload of videos to the [SYNQ platform](https://www.synq.fm).
+SynqUploader is a simple Objective-C library that enables upload of videos to the [SYNQ platform](https://www.synq.fm).
 
 The library uses [AFNetworking 3](https://github.com/AFNetworking/AFNetworking) for communicating with the server. It utilizes a background configured NSURLSession to manage video uploads. This makes the upload continue regardless of whether the app is in the foreground or background.
 
@@ -26,10 +26,10 @@ pod "SynqLib"
 
 ## Getting started
 
-### Import the SynqLib header
+### Import the SynqUploader header
 
 ```objective-c
-#import <SynqLib/SynqLib.h>
+#import <SynqUploader/SynqUploader.h>
 ```
 
 ### Create an upload
@@ -64,18 +64,29 @@ uploadProgressBlock:^(double progress) {
 NSLog(@"Upload progress: %f", progress);
 // Report progress to UI
 
-} uploadSuccess:^(NSURLResponse *response) {
-
-NSLog(@"Upload success: %@", response);
-// Handle upload success
-
-} uploadError:^(NSError *error){
-
-NSLog(@"Upload error: %@", error);
-// Handle upload error
-
 }];
 ```
+
+### Handle upload complete
+
+The outcome of each upload is reported through the SQVideoUploadDelegate methods. These are the methods that are available, and how they should be used:
+
+```objective-c
+- (void) videoUploadCompleteForVideo:(SQVideoUpload *)video;
+```
+This method gets called when a SQVideoUpload is successfully uploaded.
+
+```objective-c
+- (void) videoUploadFailedForVideo:(SQVideoUpload *)video;
+```
+This method gets called when there was an error uploading a SQVideoUpload.
+
+```objective-c
+- (void) allVideosUploadedSuccessfully;
+```
+This method gets called when all SQVideoUpload objects were successfully uploaded.
+
+
 
 ## Requirements
 
