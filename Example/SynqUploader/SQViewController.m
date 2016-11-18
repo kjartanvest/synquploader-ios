@@ -62,7 +62,7 @@
             
             // Get device videos
             self.videos = [[SQVideoHandler sharedInstance] deviceVideos];
-            NSLog(@"Number of videos: %d", self.videos.count);
+            NSLog(@"Number of videos: %lu", (unsigned long)self.videos.count);
             
             // Reload collection view data, on main thread!
             dispatch_async(dispatch_get_main_queue(), ^{

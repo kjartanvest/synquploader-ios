@@ -7,13 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
-
-#import <Foundation/Foundation.h>
 @import Photos;
 #import "SQVideoUpload.h"
-
-
 
 @protocol SQVideoUploadDelegate;
 
@@ -40,7 +35,6 @@
       uploadProgressBlock:(void (^)(double))progressBlock
             uploadSuccess:(void (^)(NSURLResponse *))successBlock
               uploadError:(void (^)(NSError *))errorBlock;
-
 
 @end
 
