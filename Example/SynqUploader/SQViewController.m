@@ -111,12 +111,18 @@
     
     // Use the singleton instance to initiate an upload for the video array
     [[SynqUploader sharedInstance] uploadVideoArray:assetsArray
-                           uploadProgressBlock:^(double progress) {
+                                exportProgressBlock:^(double exportProgress) {
+                                  
+                                    NSLog(@"Export progress: %f", exportProgress);
+                                    // Report progress to UI
+                                  
+                                }
+                                uploadProgressBlock:^(double uploadProgress) {
                                
-                               NSLog(@"Upload progress: %f", progress);
-                               // Report progress to UI
+                                    NSLog(@"Upload progress: %f", uploadProgress);
+                                    // Report progress to UI
                                
-                           }];
+                                }];
 }
 
 
@@ -191,9 +197,15 @@
     
     // Use SynqUploader to initiate exporting and uploading the videos in the array
     [[SynqUploader sharedInstance] uploadVideoArray:videosArray
-                                uploadProgressBlock:^(double progress) {
+                                exportProgressBlock:^(double exportProgress) {
+                                  
+                                    NSLog(@"Export progress: %f", exportProgress);
+                                    // Report progress to UI
+                                  
+                                }
+                                uploadProgressBlock:^(double uploadProgress) {
                                     
-                                    NSLog(@"Upload progress: %f", progress);
+                                    NSLog(@"Upload progress: %f", uploadProgress);
                                     // Report progress to UI
                                     
                                 }];

@@ -21,8 +21,10 @@
 @property (strong) NSNumber *numVideosUploaded;
 @property PHAsset *assetToUpload;
 
-@property (nonatomic, copy) void (^uploadProgress)(double progress);
+@property (nonatomic, copy) void (^uploadProgress)(double progress);    // Upload progress block
+@property (nonatomic, copy) void (^exportProgress)(double progress);    // Export progress block
 @property UIBackgroundTaskIdentifier bgTask;    // identifier for the background task, used while exporting
+@property NSTimer *exportProgressTimer;         // timer for calculating export progress (useful when downloading from iCloud)
 @property NSTimer *uploadProgressTimer;         // timer for calculating upload progress during uploading
 
 @end
@@ -64,19 +66,22 @@
  *  The upload process will also export the assets to temporary files, and delete the temporary files
  *  before calling uploadSuccess or uploadError
  *
- *  @param videos        An array of SQVideoUpload objects
- *  @param progressBlock This block will be called with upload progress updates. Use this to update the UI (the block is executed on the main thread)
+ *  @param videos               An array of SQVideoUpload objects
+ *  @param exportProgressBlock  This block will be called with export progress updates. Use this to update the UI (the block is executed on the main thread)
+ *  @param uploadProgressBlock  This block will be called with upload progress updates. Use this to update the UI (the block is executed on the main thread)
  */
 - (void) uploadVideoArray:(NSArray *)videos
-      uploadProgressBlock:(void (^)(double))progressBlock
+      exportProgressBlock:(void (^)(double))exportProgressBlock
+      uploadProgressBlock:(void (^)(double))uploadProgressBlock
 {
     if (!videos || videos.count == 0) {
         return;
     }
     
-    // Set videos array and progress block
+    // Set videos array and progress blocks
     self.videosToUpload = videos;
-    self.uploadProgress = progressBlock;
+    self.exportProgress = exportProgressBlock;
+    self.uploadProgress = uploadProgressBlock;
     
     // Start exporting assets
     [self exportVideos];
@@ -101,6 +106,15 @@
     self.numVideosToUpload = [NSNumber numberWithInt:0];
     self.numVideosExported = [NSNumber numberWithInt:0];
     self.numVideosUploaded = [NSNumber numberWithInt:0];
+    
+    // Start timer for iCloud download progress
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.exportProgressTimer = [NSTimer scheduledTimerWithTimeInterval:0.25
+                                                                    target:self
+                                                                  selector:@selector(calculateExportProgress:)
+                                                                  userInfo:nil
+                                                                   repeats:YES];
+    });
     
     // Begin background task to be able to complete export if app is put to the background
     self.bgTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
@@ -220,19 +234,44 @@
         [[UIApplication sharedApplication] endBackgroundTask:self.bgTask];
         self.bgTask = UIBackgroundTaskInvalid;
         
+        // Invalidate download progress timer
+        [self.exportProgressTimer performSelectorOnMainThread:@selector(invalidate)
+                                                   withObject:nil
+                                                waitUntilDone:NO];
+        
         // Start uploading
         [self uploadVideos];
     }
-    
 }
 
 
 #pragma mark - NSTimer method
 
+
+/**
+ *  Calculate total export progress in percentage
+ *
+ *  @param timer    The timer calling this method periodically
+ */
+- (void) calculateExportProgress:(NSTimer *)timer
+{
+    double sumProgress = 0.0;
+    for (SQVideoUpload *upload in self.videosToUpload) {
+        double progress = [upload exportProgress];
+        sumProgress = progress + sumProgress;
+    }
+    double totalProgress = sumProgress / [self.numVideosToUpload intValue] * 100.0;
+    //NSLog(@"Tot progress %f", totalProgress);
+    
+    // Call exportProgress block to report progress to caller
+    self.exportProgress(totalProgress);
+}
+
+
 /**
  *  Calculate total upload progress in percentage
  *
- *  @param timer The timer calling this method periodically
+ *  @param timer    The timer calling this method periodically
  */
 - (void) calculateUploadProgress:(NSTimer *)timer
 {

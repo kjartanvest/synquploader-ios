@@ -22,7 +22,7 @@
 @property (nonatomic) NSString *videoId;
 @property (nonatomic) NSDictionary *uploadParameters;
 @property (nonatomic) double uploadProgress;
-@property (nonatomic) double iCloudDownloadProgress;
+@property (nonatomic) double exportProgress;
 @property (nonatomic) BOOL exportComplete;
 
 - (id) initWithPHAsset:(PHAsset *)asset;

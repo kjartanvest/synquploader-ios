@@ -36,8 +36,8 @@
         [options setNetworkAccessAllowed:YES];
         [options setProgressHandler:^(double progress, NSError *error, BOOL* stop, NSDictionary *dict){
             
-            // Set download progress in video object
-            [video setICloudDownloadProgress:progress];
+            // Set export progress in video object
+            [video setExportProgress:progress];
         }];
     }
     
@@ -81,6 +81,9 @@
                                                                 NSLog(@"An error occured during exporting");
                                                                 return;
                                                             }
+                                                            
+                                                            // Set export progress to 1.0
+                                                            [video setExportProgress:1.0];
                                                             
                                                             // Set file path in video object
                                                             [video setFilePath:[session.outputURL path]];
