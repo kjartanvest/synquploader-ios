@@ -17,6 +17,7 @@
     if (self = [super init]) {
         self.phAsset = asset;
         self.uploadProgress = 0.0;
+        self.iCloudDownloadProgress = 0.0;
     }
     return self;
 }
