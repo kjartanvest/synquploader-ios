@@ -40,6 +40,11 @@
         // set baseURL for the manager to be used in subsequent requests
         NSURL *baseURL = [NSURL URLWithString:BASE_URL];
         manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
+        
+        // Show a warning message in the log if API_KEY is not set
+        if (API_KEY.length == 0) {
+            NSLog(@"WARNING: Api key is not set. SynqAPI can not be accessed");
+        }
     }
     return self;
 }
