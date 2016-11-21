@@ -26,7 +26,7 @@
  *
  *  @param video The SQVideoUpload object containing a PHAsset object to export
  */
-- (void) exportVideo:(SQVideoUpload *)video;
+- (void) exportVideo:(SQVideoUpload *)video allowICloudDownload:(BOOL)iCloudDownload;
 
 /**
  *  Delete the file at the location specified in SQVideoUpload.filePath

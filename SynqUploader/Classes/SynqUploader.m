@@ -121,7 +121,7 @@
         self.numVideosToUpload = [NSNumber numberWithInt:currentNum + 1];
         
         // Start exporting
-        [self.exporter exportVideo:video];
+        [self.exporter exportVideo:video allowICloudDownload:self.enableDownloadFromICloud];
     }
 }
 
@@ -153,7 +153,6 @@
         [self.client uploadVideo:video
                    uploadSuccess:^(NSURLResponse *response) {
                        
-                       NSLog(@"SynqUploader: Upload success");
                        // Handle upload success
                        
                        // Increase numVideosUploaded
@@ -165,7 +164,6 @@
                        }
                        
                        if ([self.numVideosUploaded isEqualToNumber:self.numVideosToUpload]) {
-                           NSLog(@"SynqUploader: All videos done uploading :)");
                            
                            // Invalidate timer
                            [self.uploadProgressTimer performSelectorOnMainThread:@selector(invalidate)

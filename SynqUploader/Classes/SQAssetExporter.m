@@ -22,7 +22,7 @@
 
 
 
-- (void) exportVideo:(SQVideoUpload *)video
+- (void) exportVideo:(SQVideoUpload *)video allowICloudDownload:(BOOL)iCloudDownload
 {
     if (!video || !video.phAsset) {
         return;
@@ -30,8 +30,19 @@
     
     __block BOOL _success;
     
+    PHVideoRequestOptions *options = nil;
+    if (iCloudDownload) {
+        options = [[PHVideoRequestOptions alloc] init];
+        [options setNetworkAccessAllowed:YES];
+        [options setProgressHandler:^(double progress, NSError *error, BOOL* stop, NSDictionary *dict){
+            
+            // Set download progress in video object
+            [video setICloudDownloadProgress:progress];
+        }];
+    }
+    
     [[PHImageManager defaultManager] requestExportSessionForVideo:video.phAsset
-                                                          options:nil
+                                                          options:options
                                                      exportPreset:AVAssetExportPresetHighestQuality
                                                     resultHandler:^(AVAssetExportSession *session, NSDictionary *info) {
                                                         

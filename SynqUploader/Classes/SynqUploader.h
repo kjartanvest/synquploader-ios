@@ -16,6 +16,7 @@
 @interface SynqUploader : NSObject
 
 @property (weak, nonatomic) id<SQVideoUploadDelegate> delegate;
+@property (nonatomic) BOOL enableDownloadFromICloud;    // Set this to YES to enable videos stored in iCloud being downloaded before uploading to AWS
 
 // A singleton instance
 + (SynqUploader *) sharedInstance;

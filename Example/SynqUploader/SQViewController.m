@@ -35,6 +35,9 @@
     // Setup SynqLib: set this class as delegate
     [[SynqUploader sharedInstance] setDelegate:self];
     
+    // If videos should be fetched from iCloud, set enableDownloadFromICloud to YES (default NO)
+    [[SynqUploader sharedInstance] setEnableDownloadFromICloud:YES];
+    
     // Init caching manager for video thumbnails
     cachingImageManager = [[PHCachingImageManager alloc] init];
 }
@@ -62,7 +65,6 @@
             
             // Get device videos
             self.videos = [[SQVideoHandler sharedInstance] deviceVideos];
-            NSLog(@"Number of videos: %lu", (unsigned long)self.videos.count);
             
             // Reload collection view data, on main thread!
             dispatch_async(dispatch_get_main_queue(), ^{
