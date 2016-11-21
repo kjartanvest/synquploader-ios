@@ -59,12 +59,18 @@ NSArray *assetsArray = [NSArray arrayWithObjects:video1, video2, nil];
 
 // Use the singleton instance to initiate an upload for the video array
 [[SynqLib sharedInstance] uploadVideoArray:assetsArray
-uploadProgressBlock:^(double progress) {
+        exportProgressBlock:^(double exportProgress) {
 
-NSLog(@"Upload progress: %f", progress);
-// Report progress to UI
+            NSLog(@"Export progress: %f", exportProgress);
+            // Report progress to UI
 
-}];
+        }
+        uploadProgressBlock:^(double uploadProgress) {
+
+            NSLog(@"Upload progress: %f", uploadProgress);
+            // Report progress to UI
+
+        }];
 ```
 
 ### Handle upload complete
