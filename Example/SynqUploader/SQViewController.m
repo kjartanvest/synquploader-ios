@@ -16,8 +16,9 @@
 @interface SQViewController () <SQVideoUploadDelegate> {
     PHCachingImageManager *cachingImageManager;
     CGSize cellSize;
-    NSIndexPath *selectedIndexPath;     // The index path of a selected video
+    //NSIndexPath *selectedIndexPath;     // The index path of a selected video
     NSMutableArray *selectedVideos;     // Array of selected videos for uploading
+    int numberOfPostedVideos;   // The number of videos that have have been posted to the Synq API
 }
 @property (nonatomic, strong) NSMutableArray *videos;
 
@@ -43,7 +44,9 @@
     // Init caching manager for video thumbnails
     cachingImageManager = [[PHCachingImageManager alloc] init];
     
+    // Initialize array and counter
     selectedVideos = [NSMutableArray array];
+    numberOfPostedVideos = 0;
 }
 
 
@@ -148,6 +151,23 @@
 }
 
 
+#pragma mark - Private helper methods
+
+
+- (void) startPostingVideos
+{
+    // Do nothing if no videos selected
+    if (selectedVideos.count == 0) {
+        return;
+    }
+    
+    // Post all selected videos
+    for (SQVideoUpload *video in selectedVideos) {
+        [self createVideoObjectForVideo:video];
+    }
+}
+
+
 #pragma mark - SQVideoUploadDelegate methods
 
 
@@ -202,8 +222,14 @@
                                          // Set uploadParameters in SQVideoUpload object
                                          [sqVideo setUploadParameters:jsonResponse];
                                          
-                                         // Initiate the upload
-                                         [self uploadVideo:sqVideo];
+                                         // Increment counter
+                                         numberOfPostedVideos++;
+                                         
+                                         // If all videos are done posting, upload the video array
+                                         if (numberOfPostedVideos == selectedVideos.count) {
+                                             NSLog(@"All done, start uploading...");
+                                             [self uploadVideoArray:selectedVideos];
+                                         }
                                      }
                                  httpFailureBlock:^(NSURLSessionDataTask *task, NSError *error) {
                                      NSLog(@"MV: get upload params error: %@", error);
@@ -211,13 +237,13 @@
 }
 
 
-- (void) uploadVideo:(SQVideoUpload *)sqVideo
+- (void) uploadVideoArray:(NSMutableArray *)videoArray
 {
     // Create an array of videos to upload (in this case only one video)
-    NSArray *videosArray = [NSArray arrayWithObjects:sqVideo, nil];
+    //NSArray *videosArray = [NSArray arrayWithObjects:sqVideo, nil];
     
     // Use SynqUploader to initiate exporting and uploading the videos in the array
-    [[SynqUploader sharedInstance] uploadVideoArray:videosArray
+    [[SynqUploader sharedInstance] uploadVideoArray:videoArray
                                 exportProgressBlock:^(double exportProgress) {
                                   
                                     NSLog(@"Export progress: %f", exportProgress);
@@ -245,10 +271,6 @@
     // Add video to selectedVideos array
     SQVideoUpload *video = [self.videos objectAtIndex:indexPath.row];
     [selectedVideos addObject:video];
-    
-    
-    // Call video object functions (video/create and video/upload)
-    //[self createVideoObjectForVideo:selectedVideo];
 }
     
 - (void) collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -256,7 +278,6 @@
     // Remove video from selectedVideos array
     SQVideoUpload *video = [self.videos objectAtIndex:indexPath.row];
     [selectedVideos removeObject:video];
-    
 }
 
 
