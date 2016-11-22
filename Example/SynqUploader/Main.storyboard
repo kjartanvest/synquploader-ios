@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on a video to upload" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LaH-wN-lpn">
-                                <rect key="frame" x="26" y="28" width="323" height="21"/>
+                                <rect key="frame" x="16" y="33" width="269" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="LEi-OT-LkJ"/>
                                 </constraints>
@@ -31,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xth-O9-Qd5">
-                                <rect key="frame" x="0.0" y="57" width="375" height="610"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="3" id="eR7-YZ-xDK">
                                     <size key="itemSize" width="106" height="106"/>
@@ -50,16 +51,19 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ox2-6e-cZS">
                                                     <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
                                                 </imageView>
-                                                <view hidden="YES" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N7w-G0-iA4">
+                                                <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N7w-G0-iA4">
                                                     <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="ox2-6e-cZS" secondAttribute="bottom" id="4Fu-KF-Vhb"/>
+                                            <constraint firstItem="N7w-G0-iA4" firstAttribute="bottom" secondItem="ox2-6e-cZS" secondAttribute="bottom" id="9fy-ix-BwS"/>
+                                            <constraint firstItem="N7w-G0-iA4" firstAttribute="leading" secondItem="ox2-6e-cZS" secondAttribute="leading" id="KWX-rh-LcM"/>
+                                            <constraint firstItem="N7w-G0-iA4" firstAttribute="top" secondItem="ox2-6e-cZS" secondAttribute="top" id="Lli-JI-I8U"/>
                                             <constraint firstItem="ox2-6e-cZS" firstAttribute="top" secondItem="mba-lX-kJ1" secondAttribute="top" id="U1X-zx-zrs"/>
+                                            <constraint firstItem="N7w-G0-iA4" firstAttribute="trailing" secondItem="ox2-6e-cZS" secondAttribute="trailing" id="UYH-VH-7jM"/>
                                             <constraint firstAttribute="trailing" secondItem="ox2-6e-cZS" secondAttribute="trailing" id="tL5-TT-vw6"/>
                                             <constraint firstItem="ox2-6e-cZS" firstAttribute="leading" secondItem="mba-lX-kJ1" secondAttribute="leading" id="yfE-Ga-cPQ"/>
                                         </constraints>
@@ -74,13 +78,32 @@
                                     <outlet property="delegate" destination="whP-gf-Uak" id="yRl-Bw-bo6"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61d-hx-osK">
+                                <rect key="frame" x="278" y="23" width="73" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="TmX-wV-CQx"/>
+                                    <constraint firstAttribute="height" constant="42" id="XdO-ei-HiS"/>
+                                </constraints>
+                                <state key="normal" title="Upload"/>
+                                <connections>
+                                    <action selector="uploadButtonPushed:" destination="whP-gf-Uak" eventType="touchUpInside" id="9oo-DG-1de"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mdg-Qz-SeH">
+                                <rect key="frame" x="0.0" y="80" width="375" height="2"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="LaH-wN-lpn" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" constant="26" id="LOY-MW-5HB"/>
-                            <constraint firstItem="Xth-O9-Qd5" firstAttribute="top" secondItem="LaH-wN-lpn" secondAttribute="bottom" constant="8" id="M06-eI-Rca"/>
-                            <constraint firstAttribute="trailing" secondItem="LaH-wN-lpn" secondAttribute="trailing" constant="26" id="SSh-Kf-aCq"/>
-                            <constraint firstItem="LaH-wN-lpn" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="8" id="eba-kF-Pjt"/>
+                            <constraint firstAttribute="trailing" secondItem="mdg-Qz-SeH" secondAttribute="trailing" id="20p-c8-jrA"/>
+                            <constraint firstItem="mdg-Qz-SeH" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" id="EHK-FS-ADA"/>
+                            <constraint firstItem="mdg-Qz-SeH" firstAttribute="top" secondItem="Xth-O9-Qd5" secondAttribute="top" id="GCd-hX-wFH"/>
+                            <constraint firstItem="61d-hx-osK" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="3" id="Ik2-dk-dEb"/>
+                            <constraint firstItem="LaH-wN-lpn" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" constant="16" id="LOY-MW-5HB"/>
+                            <constraint firstItem="Xth-O9-Qd5" firstAttribute="top" secondItem="LaH-wN-lpn" secondAttribute="bottom" constant="26" id="M06-eI-Rca"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="61d-hx-osK" secondAttribute="trailing" constant="8" id="MuH-lz-zx6"/>
+                            <constraint firstAttribute="trailing" secondItem="LaH-wN-lpn" secondAttribute="trailing" constant="90" id="SSh-Kf-aCq"/>
+                            <constraint firstItem="LaH-wN-lpn" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="13" id="eba-kF-Pjt"/>
                             <constraint firstItem="Xth-O9-Qd5" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" id="rUv-C6-yEe"/>
                             <constraint firstAttribute="trailing" secondItem="Xth-O9-Qd5" secondAttribute="trailing" id="tUc-iB-hk5"/>
                             <constraint firstItem="Mvr-aV-6Um" firstAttribute="top" secondItem="Xth-O9-Qd5" secondAttribute="bottom" id="wQi-tU-15i"/>
@@ -88,6 +111,8 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="Xth-O9-Qd5" id="q2O-b9-tZW"/>
+                        <outlet property="progressView" destination="mdg-Qz-SeH" id="Yqe-Ye-xr3"/>
+                        <outlet property="uploadButton" destination="61d-hx-osK" id="p1A-KN-mm9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>

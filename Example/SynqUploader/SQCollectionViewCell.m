@@ -10,4 +10,16 @@
 
 @implementation SQCollectionViewCell
 
+- (void) setSelected:(BOOL)selected
+{
+    [super setSelected:selected];
+    
+    if (selected) {
+        self.videoOverlay.hidden = NO;
+    }
+    else {
+        self.videoOverlay.hidden = YES;
+    }
+}
+
 @end

@@ -9,7 +9,12 @@
 @import UIKit;
 
 @interface SQViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
-
+    
+@property (weak, nonatomic) IBOutlet UIButton *uploadButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 
+- (IBAction)uploadButtonPushed:(id)sender;
+
+    
 @end

@@ -16,8 +16,8 @@
 @interface SQViewController () <SQVideoUploadDelegate> {
     PHCachingImageManager *cachingImageManager;
     CGSize cellSize;
-    NSIndexPath *selectedIndexPath;     // THe index path of a selected video
-    SQVideoUpload *selectedVideo;
+    NSIndexPath *selectedIndexPath;     // The index path of a selected video
+    NSMutableArray *selectedVideos;     // Array of selected videos for uploading
 }
 @property (nonatomic, strong) NSMutableArray *videos;
 
@@ -38,8 +38,12 @@
     // If videos should be fetched from iCloud, set enableDownloadFromICloud to YES (default NO)
     [[SynqUploader sharedInstance] setEnableDownloadFromICloud:YES];
     
+    [_collectionView setAllowsMultipleSelection:YES];
+    
     // Init caching manager for video thumbnails
     cachingImageManager = [[PHCachingImageManager alloc] init];
+    
+    selectedVideos = [NSMutableArray array];
 }
 
 
@@ -127,6 +131,23 @@
 
 
 
+#pragma mark - Button methods
+
+
+- (IBAction)uploadButtonPushed:(id)sender {
+    
+    NSLog(@"Upload %lu videos", (unsigned long)selectedVideos.count);
+    
+    if (selectedVideos.count == 0) {
+        return;
+    }
+    
+    SQVideoUpload *video = [selectedVideos objectAtIndex:0];
+    // Test: only one video:
+    [self createVideoObjectForVideo:video];
+}
+
+
 #pragma mark - SQVideoUploadDelegate methods
 
 
@@ -206,7 +227,11 @@
                                 uploadProgressBlock:^(double uploadProgress) {
                                     
                                     NSLog(@"Upload progress: %f", uploadProgress);
+                                    
+                                    // We need progress between 0 and 1, so must divide percent by 100
+                                    double progressBelowOne = uploadProgress / 100.0;
                                     // Report progress to UI
+                                    [self.progressView setProgress:progressBelowOne];
                                     
                                 }];
 }
@@ -217,19 +242,20 @@
 
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    // If a selection has already been made, do nothing
-    if (selectedIndexPath) {
-        return;
-    }
+    // Add video to selectedVideos array
+    SQVideoUpload *video = [self.videos objectAtIndex:indexPath.row];
+    [selectedVideos addObject:video];
     
-    selectedVideo = [self.videos objectAtIndex:indexPath.row];
-    selectedIndexPath = indexPath;
-    
-    SQCollectionViewCell *cell = (SQCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
-    [cell.videoOverlay setHidden:NO];
     
     // Call video object functions (video/create and video/upload)
-    [self createVideoObjectForVideo:selectedVideo];
+    //[self createVideoObjectForVideo:selectedVideo];
+}
+    
+- (void) collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Remove video from selectedVideos array
+    SQVideoUpload *video = [self.videos objectAtIndex:indexPath.row];
+    [selectedVideos removeObject:video];
     
 }
 
@@ -252,20 +278,11 @@
     
     SQCollectionViewCell *cell = (SQCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    SQVideoUpload *video = [self.videos objectAtIndex:indexPath.row];
-    
     if (cell.tag) {
         [cachingImageManager cancelImageRequest:(PHImageRequestID)cell.tag];
     }
     
-    if (indexPath != selectedIndexPath) {
-        [cell.videoOverlay setHidden:YES];
-    }
-    else {
-        [cell.videoOverlay setHidden:NO];
-    }
-    
-    
+    SQVideoUpload *video = [self.videos objectAtIndex:indexPath.row];
     PHAsset *asset = [video phAsset];
     
     cell.tag = [cachingImageManager requestImageForAsset:asset
@@ -278,7 +295,6 @@
     
     return cell;
 }
-
 
 
 @end
