@@ -16,6 +16,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 Important note: The example project is dependant on access to the SYNQ API to be able to create a video object and to fetch the upload parameters needed when calling the upload function. You will need to get an API key from the SYNQ admin panel, and insert the key into the SynqAPI class. **Caution: this is not the proper way of doing this, and your api key might get exposed to others!** 
 In a real world scenario, this should be handled by your own backend. The backend should then give your app the upload parameters.
 
+For more info, please read the [projects and api keys](https://docs.synq.fm/#projects-and-api-keys) section in the docs.
+
 
 ## Installation
 
