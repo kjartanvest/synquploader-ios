@@ -44,6 +44,12 @@ pod 'SynqUploader'
 SQVideoUpload *video1 = [[SQVideoUpload alloc] initWithPHAsset:nil];
 SQVideoUpload *video2 = [[SQVideoUpload alloc] initWithPHAsset:nil];
 
+// When you have successfully created a video object through the video/create function in the Synq API,
+// add the returned video_id parameter to the video
+NSString *returnedVideoId1, *returnedVideoId2;
+[video1 setVideoId:returnedVideoId1];
+[video2 setVideoId:returnedVideoId2];
+
 // Add upload parameters for each video, as a dictionary
 // This would be the parameters returned from Synq API function video/upload, and must contain the following keys:
 // "acl"
