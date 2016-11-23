@@ -120,8 +120,8 @@
                                                                   // This is not called back on the main queue.
                                                                   // Dispatching to the main queue for UI updates
                                                                   dispatch_async(dispatch_get_main_queue(), ^{
-                                                                      double progress = ((video.exportComplete ? 0.1 :0.0) + uploadProgress.fractionCompleted) / 1.1;
-                                                                      video.uploadProgress = progress;
+                                                                      
+                                                                      video.uploadProgress = uploadProgress.fractionCompleted;
                                                                       //NSLog(@"Video upload progress %f", progress);
                                                                   });
                                                               }
@@ -129,11 +129,10 @@
                                                          if (error) {
                                                              NSLog(@"Error: %@", error);
                                                              errorBlock(error);
-                                                             /* (If error code -1001, notify request timeout)
-                                                             [[NSNotificationCenter defaultCenter] postNotificationName:@"SynqVideoUploadFailed"
-                                                                                                                 object:nil];
-                                                              */
                                                          } else {
+                                                             // Set upload progress to 1.0 to indicate upload complete (this might not reach 1.0 in progress callback)
+                                                             video.uploadProgress = 1.0;
+                                                             
                                                              successBlock(response);
                                                          }
                                                          

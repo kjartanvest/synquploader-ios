@@ -248,6 +248,7 @@
                                   
                                     NSLog(@"Export progress: %f", exportProgress);
                                     // Report progress to UI
+                                    [self.progressView setProgress:exportProgress];
                                   
                                 }
                                 uploadProgressBlock:^(double uploadProgress) {
