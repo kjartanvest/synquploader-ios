@@ -145,16 +145,16 @@
         return;
     }
     
-    SQVideoUpload *video = [selectedVideos objectAtIndex:0];
-    // Test: only one video:
-    [self createVideoObjectForVideo:video];
+    // Post all selected videos
+    [self postAllVideos];
 }
+
 
 
 #pragma mark - Private helper methods
 
 
-- (void) startPostingVideos
+- (void) postAllVideos
 {
     // Do nothing if no videos selected
     if (selectedVideos.count == 0) {
