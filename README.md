@@ -68,7 +68,7 @@ NSDictionary *uploadParams2;
 NSArray *assetsArray = [NSArray arrayWithObjects:video1, video2, nil];
 
 // Use the singleton instance to initiate an upload for the video array
-[[SynqLib sharedInstance] uploadVideoArray:assetsArray
+[[SynqUploader sharedInstance] uploadVideoArray:assetsArray
         exportProgressBlock:^(double exportProgress) {
 
             NSLog(@"Export progress: %f", exportProgress);
@@ -110,8 +110,8 @@ This library requires iOS 8 or above
 
 ## Author
 
-Kjartan, kjartan@synq.fm
+Kjartan Vestvik, kjartan@synq.fm
 
 ## License
 
-SynqLib is available under the MIT license. See the LICENSE file for more info.
+SynqUploader is available under the MIT license. See the LICENSE file for more info.
