@@ -15,11 +15,11 @@ This library was created to make it easy to integrate SYNQ video uploading into 
 Please note: this pod is just an add-on to the SYNQ API and is of no use unless you already have created a service for accessing the API, either directly or by using one of our SDKs. (http://docs.synq.fm)
                        DESC
 
-  s.homepage         = 'https://bitbucket.org/synqfm/synquploader-ios.git'
+  s.homepage         = 'https://github.com/SYNQfm/synquploader-ios.git'
   s.social_media_url = 'http://twitter.com/synqfm'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Kjartan Vestvik' => 'kjartan@synq.fm' }
-  s.source           = { :git => 'https://bitbucket.org/synqfm/synquploader-ios.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/SYNQfm/synquploader-ios.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
 
