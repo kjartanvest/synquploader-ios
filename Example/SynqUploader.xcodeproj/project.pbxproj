@@ -23,7 +23,6 @@
 		6D074D5F1DDDB88F00467944 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D074D5E1DDDB88F00467944 /* Launch Screen.storyboard */; };
 		6D074D621DDDD12000467944 /* SynqAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D074D611DDDD12000467944 /* SynqAPI.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		D1CFFB411DE458C00013A05E /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = D1CFFB401DE458C00013A05E /* CHANGELOG.md */; };
 		D1DBC31F1DDB343800821D66 /* SQVideoHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DBC31E1DDB343800821D66 /* SQVideoHandler.m */; };
 		D1DBC3221DDB8EF400821D66 /* SQCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DBC3211DDB8EF400821D66 /* SQCollectionViewCell.m */; };
 		E045D589C848338D1A54EEEF /* libPods-SynqUploader_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE648CCDA709900481AC33A7 /* libPods-SynqUploader_Tests.a */; };
@@ -65,6 +64,7 @@
 		6D074D5E1DDDB88F00467944 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		6D074D601DDDD12000467944 /* SynqAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynqAPI.h; sourceTree = "<group>"; };
 		6D074D611DDDD12000467944 /* SynqAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynqAPI.m; sourceTree = "<group>"; };
+		6D0B50C41DEDACB000854276 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		731728D813D8E2B59D670142 /* SynqUploader.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SynqUploader.podspec; path = ../SynqUploader.podspec; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		88A0953299C3B6FD1BE6D7D3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -72,7 +72,6 @@
 		A947F4E5AB7DB8604D5A6E2A /* Pods-SynqUploader_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynqUploader_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SynqUploader_Tests/Pods-SynqUploader_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B1123B09CF2D82D804582408 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		CE67EDEAF2B2D7E22C815101 /* Pods-SynqUploader_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynqUploader_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SynqUploader_Tests/Pods-SynqUploader_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		D1CFFB401DE458C00013A05E /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		D1DBC31D1DDB343800821D66 /* SQVideoHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQVideoHandler.h; sourceTree = "<group>"; };
 		D1DBC31E1DDB343800821D66 /* SQVideoHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQVideoHandler.m; sourceTree = "<group>"; };
 		D1DBC3201DDB8EF400821D66 /* SQCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQCollectionViewCell.h; sourceTree = "<group>"; };
@@ -195,7 +194,7 @@
 				731728D813D8E2B59D670142 /* SynqUploader.podspec */,
 				88A0953299C3B6FD1BE6D7D3 /* README.md */,
 				B1123B09CF2D82D804582408 /* LICENSE */,
-				D1CFFB401DE458C00013A05E /* CHANGELOG.md */,
+				6D0B50C41DEDACB000854276 /* CHANGELOG.md */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -428,7 +427,6 @@
 				6003F59E195388D20070C39A /* SQAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* SQViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
-				D1CFFB411DE458C00013A05E /* CHANGELOG.md in Sources */,
 				6D074D621DDDD12000467944 /* SynqAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
