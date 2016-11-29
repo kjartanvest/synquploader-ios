@@ -10,7 +10,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 
-## [0.3.1] - 2016-11-23
+## [0.3.2] - 2016-11-29
+### Changed
+- Correct wrong date on v0.3.1
+- Update after merging to fix conflict
+
+
+## [0.3.1] - 2016-11-29
 ### Added
 - Add documentation to SQVideoUpload class
 

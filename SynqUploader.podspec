@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SynqUploader'
-  s.version          = '0.3.1'
+  s.version          = '0.3.2'
   s.summary          = 'SynqUploader is a simple Objective-C library that enables upload of videos from an iOS device to the SYNQ platform'
   s.description      = <<-DESC
 This library was created to make it easy to integrate SYNQ video uploading into your app.
