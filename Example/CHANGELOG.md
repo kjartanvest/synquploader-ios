@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Add documentation to SQVideoUpload class
 
 ### Changed
+- PodSpec: Update repo links to point to GitHub repo
 - Update readme
 
 
