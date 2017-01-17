@@ -10,6 +10,31 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 
+## [0.3.2] - 2016-11-29
+### Changed
+- Correct wrong date on v0.3.1
+- Update after merging to fix conflict
+
+
+## [0.3.1] - 2016-11-29
+### Added
+- Add documentation to SQVideoUpload class
+
+### Changed
+- PodSpec: Update repo links to point to GitHub repo
+- Update readme
+
+
+## [0.3.0] - 2016-11-23
+### Added
+- The library will now handle an array of videos for upload
+- Update example project to allow selecting multiple videos for upload
+
+### Changed
+- Fix incorrect upload progress value
+- Update code example
+
+
 ## [0.2.0] - 2016-11-21
 ### Added
 - Add property enableDownloadFromICloud to SynqUploader class.
@@ -23,4 +48,3 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.1.0] - 2016-11-15
 ### Added
 - This is the initial version.
-
