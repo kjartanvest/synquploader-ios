@@ -10,6 +10,7 @@
 #import "SQVideoHandler.h"
 #import "SQCollectionViewCell.h"
 #import "SynqAPI.h"
+#import "SQNetworkController.h"
 #import <SynqUploader/SynqUploader.h>
 
 
@@ -19,6 +20,7 @@
     //NSIndexPath *selectedIndexPath;     // The index path of a selected video
     NSMutableArray *selectedVideos;     // Array of selected videos for uploading
     int numberOfPostedVideos;   // The number of videos that have have been posted to the Synq API
+    SQNetworkController *network;       // An instance of the network controller
 }
 @property (nonatomic, strong) NSMutableArray *videos;
 
@@ -43,6 +45,9 @@
     
     // Init caching manager for video thumbnails
     cachingImageManager = [[PHCachingImageManager alloc] init];
+    
+    // Init network controller
+    network = [[SQNetworkController alloc] init];
     
     // Initialize array and counter
     selectedVideos = [NSMutableArray array];
@@ -79,6 +84,9 @@
             });
         }
     }];
+    
+    // Try logging in user (if unsuccessful, a user will be created and then logged in)
+    [network loginUser];
 }
 
 

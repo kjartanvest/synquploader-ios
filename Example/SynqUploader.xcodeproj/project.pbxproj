@@ -23,6 +23,7 @@
 		6D074D5F1DDDB88F00467944 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D074D5E1DDDB88F00467944 /* Launch Screen.storyboard */; };
 		6D074D621DDDD12000467944 /* SynqAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D074D611DDDD12000467944 /* SynqAPI.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		D1D17C1D1E2E0D16000B309A /* SQNetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D17C1C1E2E0D16000B309A /* SQNetworkController.m */; };
 		D1DBC31F1DDB343800821D66 /* SQVideoHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DBC31E1DDB343800821D66 /* SQVideoHandler.m */; };
 		D1DBC3221DDB8EF400821D66 /* SQCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DBC3211DDB8EF400821D66 /* SQCollectionViewCell.m */; };
 		E045D589C848338D1A54EEEF /* libPods-SynqUploader_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE648CCDA709900481AC33A7 /* libPods-SynqUploader_Tests.a */; };
@@ -72,6 +73,8 @@
 		A947F4E5AB7DB8604D5A6E2A /* Pods-SynqUploader_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynqUploader_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SynqUploader_Tests/Pods-SynqUploader_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B1123B09CF2D82D804582408 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		CE67EDEAF2B2D7E22C815101 /* Pods-SynqUploader_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynqUploader_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SynqUploader_Tests/Pods-SynqUploader_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		D1D17C1B1E2E0D16000B309A /* SQNetworkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQNetworkController.h; sourceTree = "<group>"; };
+		D1D17C1C1E2E0D16000B309A /* SQNetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQNetworkController.m; sourceTree = "<group>"; };
 		D1DBC31D1DDB343800821D66 /* SQVideoHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQVideoHandler.h; sourceTree = "<group>"; };
 		D1DBC31E1DDB343800821D66 /* SQVideoHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQVideoHandler.m; sourceTree = "<group>"; };
 		D1DBC3201DDB8EF400821D66 /* SQCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQCollectionViewCell.h; sourceTree = "<group>"; };
@@ -204,6 +207,8 @@
 			children = (
 				D1DBC31D1DDB343800821D66 /* SQVideoHandler.h */,
 				D1DBC31E1DDB343800821D66 /* SQVideoHandler.m */,
+				D1D17C1B1E2E0D16000B309A /* SQNetworkController.h */,
+				D1D17C1C1E2E0D16000B309A /* SQNetworkController.m */,
 				6D074D601DDDD12000467944 /* SynqAPI.h */,
 				6D074D611DDDD12000467944 /* SynqAPI.m */,
 			);
@@ -422,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1D17C1D1E2E0D16000B309A /* SQNetworkController.m in Sources */,
 				D1DBC31F1DDB343800821D66 /* SQVideoHandler.m in Sources */,
 				D1DBC3221DDB8EF400821D66 /* SQCollectionViewCell.m in Sources */,
 				6003F59E195388D20070C39A /* SQAppDelegate.m in Sources */,
