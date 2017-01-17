@@ -5,9 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.3.3] - 2017-01-17
 ### Added
+- The example project now uses SynqHttpLib for communicating with an example backend to authorize users and make function calls towards the SYNQ Video API
 
 ### Changed
+- Removed the SynqAPI class
+- Update readme
 
 
 ## [0.3.2] - 2016-11-29

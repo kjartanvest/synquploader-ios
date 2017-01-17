@@ -5,15 +5,15 @@
 [![License](https://img.shields.io/cocoapods/l/SynqUploader.svg?style=flat)](http://cocoapods.org/pods/SynqUploader)
 [![Platform](https://img.shields.io/cocoapods/p/SynqUploader.svg?style=flat)](http://cocoapods.org/pods/SynqUploader)
 
-SynqUploader is a simple Objective-C library that enables upload of videos to the [SYNQ platform](https://www.synq.fm).
+SynqUploader is a simple Objective-C library that enables upload of videos to the [SYNQ Video API](https://www.synq.fm).
 
 The library uses [AFNetworking 3](https://github.com/AFNetworking/AFNetworking) for communicating with the server. It utilizes a background configured NSURLSession to manage video uploads. This makes the upload continue regardless of whether the app is in the foreground or background.
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first. The example app will show a collection view with thumbnails of all the videos on the device. Clicking on a thumbnail will call the upload function and upload the video. 
+To run the example project, clone the repo, and run `pod install` from the Example directory first. The example app will show a collection view with thumbnails of all the videos on the device. Upload the videos of your choice by selecting them and then pressing the Upload button.
 
-Important note: The example project is dependant on access to the SYNQ API to be able to create a video object and to fetch the upload parameters needed when calling the upload function. You will need to get an API key from the SYNQ admin panel, and insert the key into the SynqAPI class. **Caution: this is not the proper way of doing this, and your api key might get exposed to others!** 
+Important note: SynqUploader is dependant on a server to authorize users and to make function calls to the SYNQ Video API in order to create video objects and fetch needed upload parameters. The example project uses the SynqHttpLib library for making these calls towards an example server. The example server is a simple NodeJS server that can be configured easily on your local machine. The repo and needed instructions can be found here: https://github.com/SYNQfm/synq-node-server In addition, you will need to get an API key from the SYNQ admin panel.
 In a real world scenario, this should be handled by your own backend. The backend should then give your app the upload parameters.
 
 For more info, please read the [projects and api keys](https://docs.synq.fm/#projects-and-api-keys) section in the docs.
@@ -44,14 +44,14 @@ pod 'SynqUploader'
 SQVideoUpload *video1 = [[SQVideoUpload alloc] initWithPHAsset:nil];
 SQVideoUpload *video2 = [[SQVideoUpload alloc] initWithPHAsset:nil];
 
-// When you have successfully created a video object through the video/create function in the Synq API,
+// When you have successfully created a video object through the video/create function in the SYNQ Video API,
 // add the returned video_id parameter to the video
 NSString *returnedVideoId1, *returnedVideoId2;
 [video1 setVideoId:returnedVideoId1];
 [video2 setVideoId:returnedVideoId2];
 
 // Add upload parameters for each video, as a dictionary
-// This would be the parameters returned from Synq API function video/upload, and must contain the following keys:
+// This would be the parameters returned from SYNQ API function video/upload, and must contain the following keys:
 // "acl"
 // "key"
 // "Policy"
