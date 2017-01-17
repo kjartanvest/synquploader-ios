@@ -14,6 +14,7 @@
 - (void) loginUser;
 
 - (void) getUserVideos;
-
+- (void) createVideoWithSuccessBlock:(void (^)(NSDictionary *))successBlock
+                    httpFailureBlock:(void (^)(NSURLSessionDataTask *, NSError *))httpFailureBlock;
 
 @end

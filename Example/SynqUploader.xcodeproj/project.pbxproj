@@ -21,7 +21,6 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		6D074D5F1DDDB88F00467944 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D074D5E1DDDB88F00467944 /* Launch Screen.storyboard */; };
-		6D074D621DDDD12000467944 /* SynqAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D074D611DDDD12000467944 /* SynqAPI.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		D1D17C1D1E2E0D16000B309A /* SQNetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D17C1C1E2E0D16000B309A /* SQNetworkController.m */; };
 		D1DBC31F1DDB343800821D66 /* SQVideoHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DBC31E1DDB343800821D66 /* SQVideoHandler.m */; };
@@ -63,8 +62,6 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		6D074D5E1DDDB88F00467944 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		6D074D601DDDD12000467944 /* SynqAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynqAPI.h; sourceTree = "<group>"; };
-		6D074D611DDDD12000467944 /* SynqAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynqAPI.m; sourceTree = "<group>"; };
 		6D0B50C41DEDACB000854276 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		731728D813D8E2B59D670142 /* SynqUploader.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SynqUploader.podspec; path = ../SynqUploader.podspec; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -209,8 +206,6 @@
 				D1DBC31E1DDB343800821D66 /* SQVideoHandler.m */,
 				D1D17C1B1E2E0D16000B309A /* SQNetworkController.h */,
 				D1D17C1C1E2E0D16000B309A /* SQNetworkController.m */,
-				6D074D601DDDD12000467944 /* SynqAPI.h */,
-				6D074D611DDDD12000467944 /* SynqAPI.m */,
 			);
 			name = Synq;
 			sourceTree = "<group>";
@@ -433,7 +428,6 @@
 				6003F59E195388D20070C39A /* SQAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* SQViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
-				6D074D621DDDD12000467944 /* SynqAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

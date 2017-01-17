@@ -9,7 +9,6 @@
 #import "SQViewController.h"
 #import "SQVideoHandler.h"
 #import "SQCollectionViewCell.h"
-#import "SynqAPI.h"
 #import "SQNetworkController.h"
 #import <SynqUploader/SynqUploader.h>
 
@@ -207,48 +206,30 @@
 #pragma mark - Video methods calling SynqAPI
 
 
+
 - (void) createVideoObjectForVideo:(SQVideoUpload *)sqVideo
 {
-    [[SynqAPI sharedInstance] createVideo:sqVideo
-                             successBlock:^(NSDictionary *jsonResponse) {
-                                 NSString *videoID = [jsonResponse objectForKey:@"video_id"];
-                                 NSLog(@"SynqAPI: create video success, video_id %@", videoID);
-                                 
-                                 // Set video_id in SQVideoUpload object
-                                 [sqVideo setVideoId:videoID];
-                                 
-                                 // Get upload parameters
-                                 [self getUploadParametersForVideo:sqVideo];
-                             }
-                         httpFailureBlock:^(NSURLSessionDataTask *task, NSError *error) {
-                             NSLog(@"MV: video create error: %@", error);
-                         }];
+    [network createVideoWithSuccessBlock:^(NSDictionary *jsonResponse) {
+        
+        //NSLog(@"SynqAPI: get upload params success, params: %@", jsonResponse);
+        
+        // Set uploadParameters in SQVideoUpload object
+        [sqVideo setUploadParameters:jsonResponse];
+        
+        // Increment counter
+        numberOfPostedVideos++;
+        
+        // If all videos are done posting, upload the video array
+        if (numberOfPostedVideos == selectedVideos.count) {
+            NSLog(@"All done, start uploading...");
+            [self uploadVideoArray:selectedVideos];
+        }
+    }
+                        httpFailureBlock:^(NSURLSessionDataTask *task, NSError *error) {
+                            NSLog(@"MV: video create error: %@", error);
+                        }];
 }
 
-
-- (void) getUploadParametersForVideo:(SQVideoUpload *)sqVideo
-{
-    [[SynqAPI sharedInstance] getUploadParameters:sqVideo
-                                     successBlock:^(NSDictionary *jsonResponse) {
-                                         
-                                         //NSLog(@"SynqAPI: get upload params success, params: %@", jsonResponse);
-                                         
-                                         // Set uploadParameters in SQVideoUpload object
-                                         [sqVideo setUploadParameters:jsonResponse];
-                                         
-                                         // Increment counter
-                                         numberOfPostedVideos++;
-                                         
-                                         // If all videos are done posting, upload the video array
-                                         if (numberOfPostedVideos == selectedVideos.count) {
-                                             NSLog(@"All done, start uploading...");
-                                             [self uploadVideoArray:selectedVideos];
-                                         }
-                                     }
-                                 httpFailureBlock:^(NSURLSessionDataTask *task, NSError *error) {
-                                     NSLog(@"MV: get upload params error: %@", error);
-                                 }];
-}
 
 
 - (void) uploadVideoArray:(NSMutableArray *)videoArray

@@ -65,6 +65,9 @@
 }
 
 
+#pragma mark - Video methods
+
+
 - (void) getUserVideos
 {
     [client getUserVideosSuccessBlk:^(NSDictionary *jsonResponse) {
@@ -76,7 +79,23 @@
 }
 
 
-#pragma mark - Video methods
+- (void) createVideoWithSuccessBlock:(void (^)(NSDictionary *))successBlock
+                    httpFailureBlock:(void (^)(NSURLSessionDataTask *, NSError *))httpFailureBlock
+{
+    [client createVideoAndGetParamsWithSuccess:^(NSDictionary *jsonResponse) {
+        NSLog(@"Create video ok, params: %@", jsonResponse);
+        
+        // Call success block and pass params dictionary
+        successBlock(jsonResponse);
+    }
+                              httpFailureBlock:^(NSURLSessionDataTask *task, NSError *error) {
+                                  NSLog(@"User videos error: %@", error);
+                                  
+                                  // Call failure block
+                                  httpFailureBlock(task, error);
+                              }];
+}
+
 
 
 
