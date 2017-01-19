@@ -32,6 +32,6 @@ Please note: this pod is just an add-on to the SYNQ API and is of no use unless 
   s.public_header_files = 'SynqUploader/Classes/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'AFNetworking', '~> 3.0'
-  s.dependency 'SynqHttpLib'
+  s.dependency 'SynqHttpLib', '~> 0.1'
 
 end
