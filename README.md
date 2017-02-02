@@ -1,6 +1,6 @@
 # SynqUploader
 
-[![CI Status](http://img.shields.io/travis/Kjartan/SynqUploader.svg?style=flat)](https://travis-ci.org/Kjartan/SynqUploader)
+[![Build Status](https://www.bitrise.io/app/2992b5baa9e05abe.svg?token=tykRLgOJllc9l42YkuB4LQ)](https://www.bitrise.io/app/2992b5baa9e05abe)
 [![Version](https://img.shields.io/cocoapods/v/SynqUploader.svg?style=flat)](http://cocoapods.org/pods/SynqUploader)
 [![License](https://img.shields.io/cocoapods/l/SynqUploader.svg?style=flat)](http://cocoapods.org/pods/SynqUploader)
 [![Platform](https://img.shields.io/cocoapods/p/SynqUploader.svg?style=flat)](http://cocoapods.org/pods/SynqUploader)
