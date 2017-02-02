@@ -21,8 +21,12 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		6D074D5F1DDDB88F00467944 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D074D5E1DDDB88F00467944 /* Launch Screen.storyboard */; };
+		6D1AB4FF1E3F755700CB28D6 /* SynqUploader_ExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D1AB4FE1E3F755700CB28D6 /* SynqUploader_ExampleUITests.m */; };
+		6D1AB5081E3F795000CB28D6 /* IMG_1633.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 6D1AB5071E3F795000CB28D6 /* IMG_1633.MOV */; };
+		6D1AB5091E3F91A900CB28D6 /* SQVideoHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DBC31E1DDB343800821D66 /* SQVideoHandler.m */; };
 		6D3194941E36176000DD2473 /* SQHttpClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3194931E36176000DD2473 /* SQHttpClientTests.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		9B4C947D7A4BBA7E14C4BE3C /* libPods-SynqUploader_ExampleUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B659E35A43026DE46208BE5 /* libPods-SynqUploader_ExampleUITests.a */; };
 		D1D17C1D1E2E0D16000B309A /* SQNetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D17C1C1E2E0D16000B309A /* SQNetworkController.m */; };
 		D1DBC31F1DDB343800821D66 /* SQVideoHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DBC31E1DDB343800821D66 /* SQVideoHandler.m */; };
 		D1DBC3221DDB8EF400821D66 /* SQCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DBC3211DDB8EF400821D66 /* SQCollectionViewCell.m */; };
@@ -38,11 +42,19 @@
 			remoteGlobalIDString = 6003F589195388D20070C39A;
 			remoteInfo = SynqUploader;
 		};
+		6D1AB5011E3F755700CB28D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6003F582195388D10070C39A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6003F589195388D20070C39A;
+			remoteInfo = SynqUploader_Example;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		09F9E85B2C8B0C7F72B3A507 /* libPods-SynqUploader_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SynqUploader_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA2CF9B63E0B5D0F7930682 /* Pods-SynqUploader_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynqUploader_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SynqUploader_Example/Pods-SynqUploader_Example.release.xcconfig"; sourceTree = "<group>"; };
+		3B659E35A43026DE46208BE5 /* libPods-SynqUploader_ExampleUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SynqUploader_ExampleUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* SynqUploader_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SynqUploader_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -64,11 +76,16 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		6D074D5E1DDDB88F00467944 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		6D0B50C41DEDACB000854276 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
+		6D1AB4FC1E3F755700CB28D6 /* SynqUploader_ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SynqUploader_ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D1AB4FE1E3F755700CB28D6 /* SynqUploader_ExampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SynqUploader_ExampleUITests.m; sourceTree = "<group>"; };
+		6D1AB5001E3F755700CB28D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D1AB5071E3F795000CB28D6 /* IMG_1633.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = IMG_1633.MOV; sourceTree = "<group>"; };
 		6D3194931E36176000DD2473 /* SQHttpClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQHttpClientTests.m; sourceTree = "<group>"; };
 		731728D813D8E2B59D670142 /* SynqUploader.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SynqUploader.podspec; path = ../SynqUploader.podspec; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		88A0953299C3B6FD1BE6D7D3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		9C31B6A5721D8B84E7225411 /* Pods-SynqUploader_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynqUploader_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SynqUploader_Example/Pods-SynqUploader_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		A67810AD50484CE7755EAB58 /* Pods-SynqUploader_ExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynqUploader_ExampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SynqUploader_ExampleUITests/Pods-SynqUploader_ExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A947F4E5AB7DB8604D5A6E2A /* Pods-SynqUploader_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynqUploader_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SynqUploader_Tests/Pods-SynqUploader_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B1123B09CF2D82D804582408 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		CE67EDEAF2B2D7E22C815101 /* Pods-SynqUploader_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynqUploader_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SynqUploader_Tests/Pods-SynqUploader_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -78,6 +95,7 @@
 		D1DBC31E1DDB343800821D66 /* SQVideoHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQVideoHandler.m; sourceTree = "<group>"; };
 		D1DBC3201DDB8EF400821D66 /* SQCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQCollectionViewCell.h; sourceTree = "<group>"; };
 		D1DBC3211DDB8EF400821D66 /* SQCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQCollectionViewCell.m; sourceTree = "<group>"; };
+		D79BAEFDBF596005D1AC1B64 /* Pods-SynqUploader_ExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynqUploader_ExampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SynqUploader_ExampleUITests/Pods-SynqUploader_ExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EE648CCDA709900481AC33A7 /* libPods-SynqUploader_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SynqUploader_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -104,6 +122,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6D1AB4F91E3F755700CB28D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B4C947D7A4BBA7E14C4BE3C /* libPods-SynqUploader_ExampleUITests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -113,6 +139,7 @@
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for SynqUploader */,
 				6003F5B5195388D20070C39A /* Tests */,
+				6D1AB4FD1E3F755700CB28D6 /* SynqUploader_ExampleUITests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
 				D623FB83546657F74D3ACE56 /* Pods */,
@@ -124,6 +151,7 @@
 			children = (
 				6003F58A195388D20070C39A /* SynqUploader_Example.app */,
 				6003F5AE195388D20070C39A /* SynqUploader_Tests.xctest */,
+				6D1AB4FC1E3F755700CB28D6 /* SynqUploader_ExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -137,6 +165,7 @@
 				6003F5AF195388D20070C39A /* XCTest.framework */,
 				09F9E85B2C8B0C7F72B3A507 /* libPods-SynqUploader_Example.a */,
 				EE648CCDA709900481AC33A7 /* libPods-SynqUploader_Tests.a */,
+				3B659E35A43026DE46208BE5 /* libPods-SynqUploader_ExampleUITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -144,6 +173,7 @@
 		6003F593195388D20070C39A /* Example for SynqUploader */ = {
 			isa = PBXGroup;
 			children = (
+				6D1AB5061E3F792A00CB28D6 /* Example video */,
 				D1DBC31C1DDB32A800821D66 /* Synq */,
 				6003F59C195388D20070C39A /* SQAppDelegate.h */,
 				6003F59D195388D20070C39A /* SQAppDelegate.m */,
@@ -202,6 +232,23 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		6D1AB4FD1E3F755700CB28D6 /* SynqUploader_ExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6D1AB4FE1E3F755700CB28D6 /* SynqUploader_ExampleUITests.m */,
+				6D1AB5001E3F755700CB28D6 /* Info.plist */,
+			);
+			path = SynqUploader_ExampleUITests;
+			sourceTree = "<group>";
+		};
+		6D1AB5061E3F792A00CB28D6 /* Example video */ = {
+			isa = PBXGroup;
+			children = (
+				6D1AB5071E3F795000CB28D6 /* IMG_1633.MOV */,
+			);
+			name = "Example video";
+			sourceTree = "<group>";
+		};
 		D1DBC31C1DDB32A800821D66 /* Synq */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +267,8 @@
 				2AA2CF9B63E0B5D0F7930682 /* Pods-SynqUploader_Example.release.xcconfig */,
 				A947F4E5AB7DB8604D5A6E2A /* Pods-SynqUploader_Tests.debug.xcconfig */,
 				CE67EDEAF2B2D7E22C815101 /* Pods-SynqUploader_Tests.release.xcconfig */,
+				A67810AD50484CE7755EAB58 /* Pods-SynqUploader_ExampleUITests.debug.xcconfig */,
+				D79BAEFDBF596005D1AC1B64 /* Pods-SynqUploader_ExampleUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -268,6 +317,27 @@
 			productReference = 6003F5AE195388D20070C39A /* SynqUploader_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		6D1AB4FB1E3F755700CB28D6 /* SynqUploader_ExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D1AB5051E3F755700CB28D6 /* Build configuration list for PBXNativeTarget "SynqUploader_ExampleUITests" */;
+			buildPhases = (
+				1F3397108C9E309ABFCFB9EB /* [CP] Check Pods Manifest.lock */,
+				6D1AB4F81E3F755700CB28D6 /* Sources */,
+				6D1AB4F91E3F755700CB28D6 /* Frameworks */,
+				6D1AB4FA1E3F755700CB28D6 /* Resources */,
+				AD820215FB5CAE9F754D3F11 /* [CP] Embed Pods Frameworks */,
+				9295C801B41A4D857A654DC7 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6D1AB5021E3F755700CB28D6 /* PBXTargetDependency */,
+			);
+			name = SynqUploader_ExampleUITests;
+			productName = SynqUploader_ExampleUITests;
+			productReference = 6D1AB4FC1E3F755700CB28D6 /* SynqUploader_ExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -282,6 +352,12 @@
 						DevelopmentTeam = 89H78C8L8B;
 					};
 					6003F5AD195388D20070C39A = {
+						TestTargetID = 6003F589195388D20070C39A;
+					};
+					6D1AB4FB1E3F755700CB28D6 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 89H78C8L8B;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 6003F589195388D20070C39A;
 					};
 				};
@@ -301,6 +377,7 @@
 			targets = (
 				6003F589195388D20070C39A /* SynqUploader_Example */,
 				6003F5AD195388D20070C39A /* SynqUploader_Tests */,
+				6D1AB4FB1E3F755700CB28D6 /* SynqUploader_ExampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -313,6 +390,7 @@
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6D074D5F1DDDB88F00467944 /* Launch Screen.storyboard in Resources */,
+				6D1AB5081E3F795000CB28D6 /* IMG_1633.MOV in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +400,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D1AB4FA1E3F755700CB28D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +428,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SynqUploader_Example/Pods-SynqUploader_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		1F3397108C9E309ABFCFB9EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		5E54B6B828D5AC16D6A3D75C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -356,6 +456,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SynqUploader_Example/Pods-SynqUploader_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9295C801B41A4D857A654DC7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SynqUploader_ExampleUITests/Pods-SynqUploader_ExampleUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9930594510AF8D5817AAB22C /* [CP] Check Pods Manifest.lock */ = {
@@ -386,6 +501,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AD820215FB5CAE9F754D3F11 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SynqUploader_ExampleUITests/Pods-SynqUploader_ExampleUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B2A283B84BCB7B415E615C52 /* [CP] Embed Pods Frameworks */ = {
@@ -443,6 +573,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6D1AB4F81E3F755700CB28D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D1AB5091E3F91A900CB28D6 /* SQVideoHandler.m in Sources */,
+				6D1AB4FF1E3F755700CB28D6 /* SynqUploader_ExampleUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -450,6 +589,11 @@
 			isa = PBXTargetDependency;
 			target = 6003F589195388D20070C39A /* SynqUploader_Example */;
 			targetProxy = 6003F5B3195388D20070C39A /* PBXContainerItemProxy */;
+		};
+		6D1AB5021E3F755700CB28D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6003F589195388D20070C39A /* SynqUploader_Example */;
+			targetProxy = 6D1AB5011E3F755700CB28D6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -636,6 +780,43 @@
 			};
 			name = Release;
 		};
+		6D1AB5031E3F755700CB28D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A67810AD50484CE7755EAB58 /* Pods-SynqUploader_ExampleUITests.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 89H78C8L8B;
+				INFOPLIST_FILE = SynqUploader_ExampleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "synqfm.SynqUploader-ExampleUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SynqUploader_Example;
+			};
+			name = Debug;
+		};
+		6D1AB5041E3F755700CB28D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D79BAEFDBF596005D1AC1B64 /* Pods-SynqUploader_ExampleUITests.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 89H78C8L8B;
+				INFOPLIST_FILE = SynqUploader_ExampleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "synqfm.SynqUploader-ExampleUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SynqUploader_Example;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -665,6 +846,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		6D1AB5051E3F755700CB28D6 /* Build configuration list for PBXNativeTarget "SynqUploader_ExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D1AB5031E3F755700CB28D6 /* Debug */,
+				6D1AB5041E3F755700CB28D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

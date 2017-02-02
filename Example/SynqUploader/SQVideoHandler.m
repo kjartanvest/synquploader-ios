@@ -8,12 +8,14 @@
 
 #import "SQVideoHandler.h"
 @import Photos;
-#import <SynqUploader/SQVideoUpload.h>
+#import <SynqUploader/SynqUploader.h>
 
 
 @interface SQVideoHandler () {
     // Fetch result for PHAssets on iOS 8
     PHFetchResult *videoFetchResult;
+    
+    void (^testCompletionBlock)(NSError *);
 }
 @end
 
@@ -59,6 +61,23 @@
         
         [self.deviceVideos addObject:video];
     }
+}
+
+
+- (void)testCopySampleVideoToLibraryWithCompletion:(void (^)(NSError *))completionBlock
+{
+    NSLog(@"testCopySampleVid");
+    testCompletionBlock = completionBlock;
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"IMG_1633" ofType:@"MOV"];
+    UISaveVideoAtPathToSavedPhotosAlbum(path, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
+}
+
+- (void)               video: (NSString *) videoPath
+    didFinishSavingWithError: (NSError *) error
+                 contextInfo: (void *) contextInfo
+{
+    NSLog(@"Video saved, error: %@", error);
+    testCompletionBlock(error);
 }
 
 @end

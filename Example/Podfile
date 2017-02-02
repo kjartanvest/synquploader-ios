@@ -4,7 +4,12 @@ target 'SynqUploader_Example' do
 
   target 'SynqUploader_Tests' do
     inherit! :search_paths
-
     
+  end
+
+  target 'SynqUploader_ExampleUITests' do
+    inherit! :search_paths
+    pod 'SynqUploader', :path => '../'
+
   end
 end

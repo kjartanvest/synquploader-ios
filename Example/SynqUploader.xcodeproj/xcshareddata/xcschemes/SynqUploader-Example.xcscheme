@@ -38,6 +38,16 @@
                ReferencedContainer = "container:SynqUploader.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6D1AB4FB1E3F755700CB28D6"
+               BuildableName = "SynqUploader_ExampleUITests.xctest"
+               BlueprintName = "SynqUploader_ExampleUITests"
+               ReferencedContainer = "container:SynqUploader.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

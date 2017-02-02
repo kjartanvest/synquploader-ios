@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface SQVideoHandler : NSObject
 
 + (SQVideoHandler *) sharedInstance;
@@ -15,5 +16,8 @@
 @property (nonatomic, strong) NSMutableArray *deviceVideos;
 
 //- (void) fetchDeviceVideos;
+
+// Test method:
+- (void)testCopySampleVideoToLibraryWithCompletion:(void (^)(NSError *))completionBlock;
 
 @end

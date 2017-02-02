@@ -77,6 +77,7 @@
             // Get device videos
             self.videos = [[SQVideoHandler sharedInstance] deviceVideos];
             
+            
             // Reload collection view data, on main thread!
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.collectionView reloadData];
@@ -179,6 +180,7 @@
         [self createVideoObjectForVideo:video];
     }
 }
+
 
 
 #pragma mark - SQVideoUploadDelegate methods
